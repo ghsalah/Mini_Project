@@ -1,0 +1,50 @@
+{% extends 'user_1/base_0.html' %}
+
+{% block title %}Register - Talent Trove{% endblock %}
+
+{% block content %}
+{% load static %}
+<link href="{% static 'user_1/css/styles_register.css' %}" rel="stylesheet">
+
+<div class="login-container">
+    <!-- Left Section: App Preview -->
+    <div class="app-preview">
+        <img src="{% static 'user_1/images/img_1.png' %}" alt="B">
+    </div>
+
+    <!-- Right Section: Form and Log In -->
+    <div class="form-section">
+        <div class="login-box">
+            <h1>Talent Trove</h1>
+            
+            <form method="POST">
+                {% csrf_token %}
+                <input type="text" class="form-control" name="username" placeholder="Username" required>
+                <input type="email" class="form-control" name="email" placeholder="Email" required>
+                <input type="password" class="form-control" name="password" placeholder="Password" required>
+                <input type="password" class="form-control" name="password_confirm" placeholder="Confirm Password" required>
+
+                <!-- Country Select Box -->
+                <select class="form-control" name="country" required>
+                    <option value="" disabled selected>Select your country</option>
+                    <option value="US">United States</option>
+                    <option value="CA">Canada</option>
+                    <option value="GB">United Kingdom</option>
+                    <option value="AU">Australia</option>
+                    <option value="IN">India</option>
+                    <option value="DE">Germany</option>
+                    <option value="FR">France</option>
+                    <!-- Add more countries as needed -->
+                </select>
+
+                <button type="submit" class="btn">Register</button>
+            </form>
+
+            <p class="mt-3">OR</p>
+            <div class="signup-box">
+                <p>Already have an account? <a href="{% url 'login' %}">Log in</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

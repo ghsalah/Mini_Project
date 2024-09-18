@@ -1,0 +1,72 @@
+body {
+    background-color: #121212;
+    color: #fff;
+}
+
+.container {
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+
+
+.notifications-list {
+    background-color: #1e1e1e;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.notification-item {
+    display: flex;
+    align-items: center;
+    background-color: #282828;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.notification-icon {
+    font-size: 24px;
+    color: #ffb701;
+    margin-right: 15px;
+}
+
+.notification-content {
+    flex: 1;
+}
+
+.notification-title {
+    font-size: 18px;
+    margin: 0;
+}
+
+.notification-text {
+    font-size: 14px;
+    color: #ccc;
+}
+
+.notification-time {
+    font-size: 12px;
+    color: #888;
+    position: absolute;
+    right: 15px;
+    bottom: 15px;
+}
+
+/* Toggle Button */
+.toggle-btn {
+    background-color: #1e1e1e;
+    color: #fff;
+    border: none;
+    font-size: 24px;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 1000;
+}

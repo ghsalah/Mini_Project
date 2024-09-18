@@ -1,0 +1,51 @@
+{% extends 'user_1/base_1.html' %}
+{% load static %}
+
+{% block title %} Notifications - Talent Trove {% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'user_1/css/styles_notifications.css' %}">
+
+<!-- Toggle Sidebar Button -->
+<button class="toggle-btn" onclick="toggleSidebar()">&#9776;</button>
+
+<!-- Notifications Container -->
+<div class="container">
+    <h2 class="section-title">Notifications</h2>
+    <div class="notifications-list">
+        <!-- Notification Item -->
+        <div class="notification-item">
+            <i class="fa fa-briefcase notification-icon"></i>
+            <div class="notification-content">
+                <h3 class="notification-title">Job Application Update</h3>
+                <p class="notification-text">Your application for <strong>Frontend Developer</strong> has been viewed.</p>
+                <span class="notification-time">2 hours ago</span>
+            </div>
+        </div>
+
+        <!-- Notification Item -->
+        <div class="notification-item">
+            <i class="fa fa-envelope notification-icon"></i>
+            <div class="notification-content">
+                <h3 class="notification-title">New Message</h3>
+                <p class="notification-text">You received a message from <strong>John Doe</strong>.</p>
+                <span class="notification-time">5 hours ago</span>
+            </div>
+        </div>
+
+        <!-- Notification Item -->
+        <div class="notification-item">
+            <i class="fa fa-bell notification-icon"></i>
+            <div class="notification-content">
+                <h3 class="notification-title">System Update</h3>
+                <p class="notification-text">Talent Trove has introduced new features for job seekers.</p>
+                <span class="notification-time">1 day ago</span>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'user_1/js/scripts_notifications.js' %}"></script>
+{% endblock %}
