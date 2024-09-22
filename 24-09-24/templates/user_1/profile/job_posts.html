@@ -1,0 +1,22 @@
+
+
+    <div class="job-posts">
+        {% for job in job_posts %}
+            <div class="job-post">
+                <h2>{{ job.job_title }}</h2>
+                <p><strong>Skills:</strong> {{ job.skills }}</p>
+                <p><strong>Duration:</strong> {{ job.duration }}</p>
+                <p><strong>Category:</strong> {{ job.category }}</p>
+                <p><strong>Experience Required:</strong> {{ job.experience }} years</p>
+                <p><strong>Budget:</strong> ${{ job.budget }}</p>
+                <p><strong>Description:</strong> {{ job.description }}</p>
+            </div>
+            <hr>
+        {% empty %}
+            <p>No job posts available.</p>
+        {% endfor %}
+    </div>
+
+    <a href="{% url 'post_job' %}" class="btn btn-outline-primary">Create a New Job Post</a>  <!-- Add a class for styling -->
+
+

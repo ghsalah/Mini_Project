@@ -1,0 +1,125 @@
+/* General Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Job Post Cards */
+.job-posts {
+    margin-bottom: 40px;
+}
+
+.job-card-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.app_job_card {
+    background-color: #2b2b2b;
+    border: 1px solid #fff;
+    border-radius: 20px;
+    padding: 20px;
+    color: white;
+}
+
+.job-title {
+    color: #ffb701;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.action-buttons button {
+    background: none;
+    border: 2px solid;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.action-buttons .approve-btn {
+    border-color: #28a745; /* Green border for approved */
+    color: #28a745;
+}
+
+.action-buttons .approve-btn:hover {
+    background-color: #28a745;
+    color: #fff;
+}
+
+.action-buttons .reject-btn {
+    border-color: #dc3545; /* Red border for rejected */
+    color: #dc3545;
+}
+
+.action-buttons .reject-btn:hover {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+.action-buttons .pending-btn {
+    border-color: #ffc107; /* Yellow border for pending */
+    color: #ffc107;
+}
+
+.action-buttons .pending-btn:hover {
+    background-color: #ffc107;
+    color: #fff;
+}
+
+/* Instagram-like Post Feed */
+.post-feed {
+    margin-bottom: 40px;
+}
+
+.post-card-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.post-card {
+    background-color: #2b2b2b;
+    border-radius: 10px;
+    overflow: hidden;
+    color: white;
+}
+
+.post-header {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.profile-pic {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.profile-name {
+    color: #ffb701;
+    text-decoration: none;
+}
+
+.post-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.post-content {
+    padding: 10px;
+}

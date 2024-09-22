@@ -1,0 +1,25 @@
+{% for job in jobs %}
+<div class="app_job_card">
+    <div class="application-header">
+        <div>
+            <img src="https://via.placeholder.com/50" alt="Profile Picture" class="profile-pic">
+            <a href="#" class="profile-name">John Doe</a>
+        </div>
+    </div>
+    <div class="job-title" onclick="toggleDetails(this)">{{ job.title }}</div>
+    <div class="job-details" style="display: none;">
+        <p><strong>Skills:</strong> {{ job.skills }}</p>
+        <p><strong>Duration:</strong> {{ job.duration }}</p>
+        <p><strong>Category:</strong> {{ job.category }}</p>
+        <p><strong>Experience:</strong> {{ job.experience }} years</p>
+        <p><strong>Budget:</strong> ${{ job.budget }} </p>
+        <p><strong>Description:</strong> {{ job.description }} </p>
+        <div class="action-buttons">
+            <button class="approve-btn"><i class="fa-solid fa-check"></i> Approve</button>
+            <button class="reject-btn"><i class="fa-solid fa-xmark"></i> Reject</button>
+            <button class="pending-btn"><i class="fa-solid fa-hourglass-half"></i> Pending</button>
+        </div>
+    </div>
+</div>
+{% endfor %}
+

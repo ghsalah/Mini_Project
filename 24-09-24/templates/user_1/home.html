@@ -1,0 +1,58 @@
+{% extends 'user_1/base_1.html' %}
+{% load static %}
+
+{% block title %}Home - Talent Trove{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'user_1/css/styles_home.css' %}">
+
+
+
+<div class="container">
+    <!-- Vertical Scrolling Job Post Cards -->
+    <section class="job-posts">
+        <h2>Job Postings</h2>
+        <div class="job-card-container">
+            <!-- Job Post Card Example -->
+            <div class="app_job_card">
+                <h3 class="job-title">Software Developer</h3>
+                <p><strong>Skills:</strong> JavaScript, React, Node.js</p>
+                <p><strong>Duration:</strong> 6 months</p>
+                <p><strong>Experience:</strong> 3 years</p>
+                <p><strong>Budget:</strong> $5000</p>
+                <p><strong>Description:</strong> Looking for a skilled developer to work on a new project...</p>
+                <div class="action-buttons">
+                    <button class="approve-btn">Approve</button>
+                    <button class="reject-btn">Reject</button>
+                    <button class="pending-btn">Pending</button>
+                </div>
+            </div>
+            <!-- Add more job cards as needed -->
+        </div>
+    </section>
+
+    <!-- Instagram-like Post Feed -->
+    <section class="post-feed">
+        <h2>Latest Posts</h2>
+        <div class="post-card-container">
+            <!-- Post Card Example -->
+            <div class="post-card">
+                <div class="post-header">
+                    <img src="https://via.placeholder.com/50" alt="Profile Picture" class="profile-pic">
+                    <a href="#" class="profile-name">Jane Doe</a>
+                </div>
+                <img src="https://via.placeholder.com/500" alt="Post Image" class="post-image">
+                <div class="post-content">
+                    <p><strong>Caption:</strong> Loving this new project! #freelance #developer</p>
+                    
+                </div>
+            </div>
+            <!-- Add more post cards as needed -->
+        </div>
+    </section>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<!-- <script src="{% static 'user_1/js/scripts_home.js' %}"></script> -->
+{% endblock %}

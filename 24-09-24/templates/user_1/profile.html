@@ -1,0 +1,223 @@
+{% extends 'user_1/base_1.html' %}
+{% load static %}
+
+{% block title %}Profile - Talent Trove{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'user_1/css/styles_profile.css' %}">
+
+    <button class="toggle-btn" onclick="toggleSidebar()">&#9776;</button>
+
+    <!-- Profile Section -->
+    <div class="container">
+        <h3 class="section-title">Profile</h3>
+        <!-- Profile Section Container -->
+       
+        
+        <div class="profile-section">
+            <div class="profile-header">
+                <div class="profile-pic-container">
+                    {% if user_profile and user_profile.profile_pic %}
+                        <img src="{{ user_profile.profile_pic.url }}" alt='{{ request.user.username|slice:":1"|upper }}' class="profile-pic">
+                    {% else %}
+                        <span class="imgtext">{{ request.user.username|slice:":1"|upper }}</span>
+                    {% endif %}
+                </div>
+        
+                <div class="profile-info">
+                    <h2>{{ request.user.username|upper }} <button id="edit-btn" class="btn" onclick="toggleEdit()"> <i id="edit-profile-btn" class="fas fa-pen"> </i></button></h2>
+                    
+                </div>
+            </div>
+        
+            <!-- Profile Details Section -->
+            <div class="profile-details" id="profile-view">
+                <div class="profile-group">
+                    <span class="profile-label">Email:</span>
+                    <span class="profile-data">{{ request.user.email }}</span>
+                </div>
+                <div class="profile-group">
+                    <span class="profile-label">Country:</span>
+                    <span class="profile-data">
+                        {% if user_profile %}
+                            {{ user_profile.country|default:"Not Provided" }}
+                        {% else %}
+                            Not Provided
+                        {% endif %}
+                    </span>
+                </div>
+                <div class="profile-group">
+                    <span class="profile-label">Company Name:</span>
+                    <span class="profile-data">
+                        {% if user_profile %}
+                            {{ user_profile.company_name|default:"Not Provided" }}
+                        {% else %}
+                            Not Provided
+                        {% endif %}
+                    </span>
+                </div>
+                <div class="profile-group">
+                    <span class="profile-label">Industry:</span>
+                    <span class="profile-data">
+                        {% if user_profile %}
+                            {{ user_profile.industry|default:"Not Provided" }}
+                        {% else %}
+                            Not Provided
+                        {% endif %}
+                    </span>
+                </div>
+                <div class="profile-group">
+                    <span class="profile-label">Hourly Rate:</span>
+                    <span class="profile-data">
+                        {% if user_profile %}
+                            {{ user_profile.hourly_rate|default:"Not Provided" }}
+                        {% else %}
+                            Not Provided
+                        {% endif %}
+                    </span>
+                </div>
+                <div class="profile-group">
+                    <span class="profile-label">Experience:</span>
+                    <span class="profile-data">
+                        {% if user_profile %}
+                            {{ user_profile.experience|default:"Not Provided" }}
+                        {% else %}
+                            Not Provided
+                        {% endif %}
+                    </span>
+                </div>
+                <div class="profile-group">
+                    <span class="profile-label">Skills:</span>
+                    <span class="profile-data">
+                        {% if user_profile %}
+                            {{ user_profile.skills|default:"Not Provided" }}
+                        {% else %}
+                            Not Provided
+                        {% endif %}
+                    </span>
+                </div>
+                <div class="profile-group">
+                    <span class="profile-label">Languages:</span>
+                    <span class="profile-data">
+                        {% if user_profile %}
+                            {{ user_profile.languages|default:"Not Provided" }}
+                        {% else %}
+                            Not Provided
+                        {% endif %}
+                    </span>
+                </div>
+                <div class="profile-group">
+                    <span class="profile-label">About:</span>
+                    <span class="profile-data">
+                        {% if user_profile %}
+                            {{ user_profile.about|default:"Not Provided" }}
+                        {% else %}
+                            Not Provided
+                        {% endif %}
+                    </span>
+                </div>
+            </div>
+        
+            <!-- Edit Form Section (Initially hidden) -->
+            <div class="profile-details" id="profile-edit" style="display:none;">
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit" class="btn btn-success">Save</button>
+                    <button type="button" class="btn btn-secondary" onclick="toggleEdit()">Cancel</button>
+                </form>
+            </div>
+        </div>
+        
+        <script>
+            function toggleEdit() {
+                const viewSection = document.getElementById('profile-view');
+                const editSection = document.getElementById('profile-edit');
+                const editBtn = document.getElementById('edit-btn');
+        
+                if (viewSection.style.display === 'none') {
+                    // Show profile view and hide profile edit form
+                    viewSection.style.display = 'block';
+                    editSection.style.display = 'none';
+                    editBtn.style.display = 'block';
+                } else {
+                    // Show profile edit form and hide profile view
+                    viewSection.style.display = 'none';
+                    editSection.style.display = 'block';
+                    editBtn.style.display = 'none';
+                }
+            }
+        </script>
+        
+        
+
+   <!-- Navigation Tabs -->
+<nav class="navbar navbar-expand-lg" style="background-color: #121212;">
+    <div class="container-fluid">
+        <ul class="navbar-nav me-auto mb-2" style="flex-direction: row;">
+            <li class="nav-item active">
+                <a  class="nav-link active" id="media-hub-tab"><i class="fas fa-images"></i></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="post-a-job-tab"><i class="fas fa-plus-circle"></i></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="my-applications-tab"><i class="fas fa-briefcase"></i></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="job-applications-tab"><i class="fas fa-bullhorn"></i></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="job-pending-tab"><i class="fa-solid fa-hourglass-half "></i></a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<!-- Dynamic Sections -->
+<div class="content-section">
+<!-- Media Hub Section -->
+<div id="media-hub" style="display: block;">
+    <h2>Media Hub <a href="{% url 'add_post' %}" ><i id="add-post-btn" class="fas fa-plus-circle"></i></a> </h2>
+    
+    <!-- Gallery Grid -->
+    {% include 'user_1/profile/media_hub.html' with posts=posts %}
+
+    <!-- Lightbox -->
+   
+</div>
+
+<!-- form -->
+<div id="my-applications" style="display: none;">
+    <h2>Applied Jobs</h2>
+    {% include 'user_1/profile/applied_jobs.html' %}
+</div>
+
+<div id="post-a-job" style="display: none;">
+    <h2>Post a Job</h2>
+    {% include 'user_1/profile/job_posts.html' %}
+</div>
+
+<div id="job-applications" style="display: none;">
+    <h2>Applications for Your Jobs</h2>
+    {% include 'user_1/profile/job_applications.html' %}
+    <!-- Repeat .app_job_card for more applications -->
+</div>
+
+<div id="job-pending" style="display: none;">
+    <h2>Pending Jobs</h2>
+    {% include 'user_1/profile/job_pending.html' %}
+</div>
+
+
+</div>
+
+
+</body>
+</div>
+<script src="{% static 'user_1/js/script_profile.js' %}"></script>
+{% endblock %}
+
+{% block extra_js %}
+    <!-- Link to external JavaScript file -->
+
+{% endblock %}

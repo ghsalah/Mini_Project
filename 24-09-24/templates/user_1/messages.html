@@ -1,0 +1,60 @@
+{% extends 'user_1/base_1.html' %}
+{% load static %}
+
+{% block title %} Messages - Talent Trove{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'user_1/css/styles_messages.css' %}">
+
+<h2 class="section-title">Your Messages</h2>
+<div class="message-container">
+    <!-- Message List -->
+    <div class="message-list" id="messageList">
+        <ul>
+            <li class="message-item">
+                <a href="javascript:void(0);" onclick="openConversation()">
+                    <div class="message-item-content">
+                        <img src="{% static 'user_1/images/profile_2.jpg' %}" alt="Profile Picture" class="profile-pic">
+                        <div class="message-details">
+                            <h3>I'm good, thanks!...</h3>
+                            <p>Zukker</p>
+                        </div>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+    
+    <!-- Chat Box -->
+    <div class="message-detail" id="messageDetail">
+        <div class="chat-header">
+            <!-- Back Button for Mobile -->
+            <button class="back-btn" onclick="goBack()">
+                <i class="fas fa-arrow-left"> </i>
+            </button>
+            <img src="{% static 'user_1/images/profile_2.jpg' %}" alt="Profile Picture" class="chat-profile-pic">
+            <h6 class="m-3">Zukker</h6>
+        </div>
+        
+        <div class="chat-box">
+            <div class="message received">
+                <p>Hello! How are you?</p>
+                <span class="timestamp">10:30 AM</span>
+            </div>
+            <div class="message sent">
+                <p>I'm good, thanks! How about you?</p>
+                <span class="timestamp">10:32 AM</span>
+            </div>
+        </div>
+        
+        <div class="message-input">
+            <input type="text" placeholder="Type a message...">
+            <button type="submit"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'user_1/js/scripts_messages.js' %}"></script>
+{% endblock %}
